@@ -1,0 +1,32 @@
+### Get all contacts
+GET https://contacts-api-r6ls.onrender.com/contacts
+
+### Get one contact
+GET https://contacts-api-r6lx.onrender.com/contacts/69aa4ef6ebdb690f2059b9ff
+
+### Create contact
+POST https://contacts-api-r6lx.onrender.com/contacts
+Content-type: application/json
+
+{
+    "firstName": "Test",
+    "lastName": "User",
+    "email": "test@email.com",
+    "favoriteColor": "blue",
+    "birthday": "2000-01-01"
+}
+
+###Update contact
+PUT http://contacts-api-r6ls.onrender.com/contacts/CONTACT_ID
+Content-Type: application/json
+
+{
+    "firstName": "Updated",
+    "lastName": "User",
+    "email": "updated@email.com",
+    "favoriteColor": "green",
+    "birthday": "2000-01-01"
+}
+
+### Delete contact
+DELETE https://contacts-api-r6lx.onrender.com/contacts/CONTACT_ID
