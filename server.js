@@ -2,6 +2,8 @@ const express = require("express");
 const dotenv = require("dotenv");
 const mongodb = require("./data/database");
 const contactsRoutes = require("./routes/contacts");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger-output.json");
 
 dotenv.config();
 
@@ -16,6 +18,9 @@ app.get("/", (req, res) => {
 
 app.use("/contacts", contactsRoutes);
 
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 mongodb.initDb().then(() =>{
     app.listen(port, () => {
         console.log(`Server running on port ${port}`);
@@ -23,4 +28,3 @@ mongodb.initDb().then(() =>{
 }).catch((err) => {
     console.error("Database connection failed:", err);
 });
-   
